@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 typedef struct book_details {
     char* title;
@@ -18,7 +20,10 @@ int main() {
 
     book book_list[n];
 
-    Add(book_list, n);
+    for (int i = 0; i <n; ++i) {
+       printf("Please insert information for book #%d \n", i+1);
+       Add(book_list, i);
+    }
 
     Display(book_list, n);
 
@@ -27,16 +32,21 @@ int main() {
     return 0;
 }
 
+/**
+ *  Read info for a book from the user 
+ * */
 void Add(book *my_book, int n)
-/* read info for each book */
 {
-    for (int i = 0; i <n; ++i) {
-        printf("Please insert information for book #%d \n", i+1);
-        printf("\tTitle: ");
-        scanf("%s", my_book[i].title);
-        printf("\tPrice: ");
-        scanf("%f", &my_book[i].price);
-    }
+    char title[61];
+
+    printf("\tTitle: ");
+    // scanf("%s", &my_book[i].title);
+    scanf("%60s", title);      
+    my_book[n].title = (char*)malloc(strlen(title));
+    strcpy(my_book[n].title, title);
+
+    printf("\tPrice: ");
+    scanf("%f", &my_book[n].price);
 
     return;
 }
