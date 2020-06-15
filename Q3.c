@@ -14,12 +14,24 @@ float AverageBookPrice(book *my_book, int n);
 
 int main() {
 
-    int n, i;
-    printf("Enter how many books to store: ");
-    scanf("%d", &n);
+    printf("\n\tIncredible Book Management\n\t==========================\n\n");
+    int n = 0;
 
+    printf("Enter how many books to store: ");
+    while (scanf("%d", &n) != 1){
+        int c;
+        /* read and ignore the rest of the line */
+        while ((c = getchar()) != EOF && c != '\n')
+            continue;
+        if (c == EOF) {
+            /* premature end of file */
+            return 1;
+        }
+        printf("Enter how many books to store: ");
+    }
     book book_list[n];
 
+    printf("\n\nGet ready to input information for %d books\n", n);
     for (int i = 0; i <n; ++i) {
        printf("Please insert information for book #%d \n", i+1);
        Add(book_list, i);
@@ -46,7 +58,17 @@ void Add(book *my_book, int n)
     strcpy(my_book[n].title, title);
 
     printf("\tPrice: ");
-    scanf("%f", &my_book[n].price);
+    while (scanf("%f", &my_book[n].price) != 1){
+        int c;
+        /* read and ignore the rest of the line */
+        while ((c = getchar()) != EOF && c != '\n')
+            continue;
+        if (c == EOF) {
+            /* premature end of file */
+            return;
+        }
+        printf("\tPrice: ");
+    }
 
     return;
 }
