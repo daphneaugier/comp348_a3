@@ -104,7 +104,7 @@ e2.print
 # Question 5
 puts "\nThis is Q5\n==========\n\n"
 
-File.readlines('input').each do |line|
+File.readlines('Q5input').each do |line|
     vars = line.split
     # Create instance with object name as first string read in line
     instance = Kernel.const_get(vars[0].capitalize).new
@@ -120,20 +120,5 @@ File.readlines('input').each do |line|
         instance.instance_variable_set(:@b, vars[2].to_f)
         end
     end
-
-    # vars.each_with_index do |var, i|
-    #     if i == 0
-    #         # Create instance of object read in file
-    #         instance = Kernel.const_get(var.capitalize).new
-    #         puts "Instance #{var} created"
-    #     else
-    #         instance.instance_variables.each do |v|
-    #             # do something
-    #         end
-    #     end
-    #     puts "\t "+var + " " + i.to_s
-    # end
-
-    # call print method to object instance created
     instance.print
 end
