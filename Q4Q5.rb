@@ -136,9 +136,9 @@ File.readlines('Q5input').each do |line|
     
     #Hash
     statistics = {   
-    "shapes" => #{@@n_shapes}
-    "rectangles" => #{@@n_rectangles}
-    "circles" => #{@@n_circles}
+    "shapes" => #{@@n_shapes},
+    "rectangles" => #{@@n_rectangles},
+    "circles" => #{@@n_circles},
     "ellipses" => #{@@n_ellipses}
     }
     puts "Statistics:"
