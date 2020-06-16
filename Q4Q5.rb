@@ -105,10 +105,10 @@ e2.print
 puts "\nThis is Q5\n==========\n\n"
 
 #introducing variables for counting
-n_shapes = 0
-n_rectangles = 0
-n_circles = 0
-n_ellipses = 0
+@@n_shapes = 0
+@@n_rectangles = 0
+@@n_circles = 0
+@@n_ellipses = 0
 
 File.readlines('Q5input').each do |line|
     vars = line.split
@@ -118,28 +118,28 @@ File.readlines('Q5input').each do |line|
         case vars[0]
         when "circle"
         instance.instance_variable_set(:@radius, vars[1].to_f)
-        n_shapes += 1
-        n_circles += 1
+        @@n_shapes += 1
+        @@n_circles += 1
         when "rectangle"
         instance.instance_variable_set(:@heigh, vars[1].to_f)
         instance.instance_variable_set(:@width, vars[2].to_f)
-        n_shapes += 1
-        n_rectangles += 1
+        @@n_shapes += 1
+        @@n_rectangles += 1
         when "ellipse"
         instance.instance_variable_set(:@a, vars[1].to_f)
         instance.instance_variable_set(:@b, vars[2].to_f)
-        n_shapes += 1
-        n_ellipses += 1
+        @@n_shapes += 1
+        @@n_ellipses += 1
         end
     end
     instance.print
     
     #Hash
     statistics = {   
-    "shapes" => #{n_shapes}
-    "rectangles" => #{n_rectangles}
-    "circles" => #{n_circles}
-    "ellipses" => #{n_ellipses}
+    "shapes" => #{@@n_shapes}
+    "rectangles" => #{@@n_rectangles}
+    "circles" => #{@@n_circles}
+    "ellipses" => #{@@n_ellipses}
     }
     puts "Statistics:"
     puts "\tShape(s):" + statistics["shapes"]
