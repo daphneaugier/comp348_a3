@@ -116,6 +116,8 @@ File.readlines('Q5input').each do |line|
     instance = Kernel.const_get(vars[0].capitalize).new
     if vars.length > 1
         case vars[0]
+        when "shape"
+        @@n_shapes += 1
         when "circle"
         instance.instance_variable_set(:@radius, vars[1].to_f)
         @@n_shapes += 1
