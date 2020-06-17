@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct book_details {
+typedef struct {
     char* title;
     float price; 
 } book;
