@@ -29,18 +29,21 @@ int main() {
         }
         printf("Enter how many books to store: ");
     }
-    book book_list[n];
+    if ( n>0 ){
+        book book_list[n];
 
-    printf("\n\nGet ready to input information for %d books\n", n);
-    for (int i = 0; i <n; ++i) {
-       printf("Please insert information for book #%d \n", i+1);
-       Add(book_list, i);
+        printf("\n\nGet ready to input information for %d books\n", n);
+        for (int i = 0; i <n; ++i) {
+        printf("Please insert information for book #%d \n", i+1);
+        Add(book_list, i);
+        }
+
+        Display(book_list, n);
+
+        printf("\n\nAverage Book Price is %f\n\n", AverageBookPrice(book_list, n));
+    } else {
+        printf("\nNothing to process\nPlease enter a positive, non-zero interger\n\n\n");
     }
-
-    Display(book_list, n);
-
-    printf("\n\nAverage Book Price is %f\n\n", AverageBookPrice(book_list, n));
-
     return 0;
 }
 
